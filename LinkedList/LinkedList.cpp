@@ -22,13 +22,22 @@ void LinkedList::insertToTail(int input){
 	
 }
 void LinkedList::insertAfter(int x, int b){
-	Node *newNode= new Node();
-	newNode->value=x;
-	Node *tmp= head->next;
-	tmp->value=b;
-	
-	newNode->next=tmp->next;
-	tmp->next=newNode;	
+	Node *newNode = new Node();
+    	newNode->value = b;
+
+    	Node *tmp = head;
+
+    	while(tmp != NULL){
+            if(tmp->value == x){
+            	newNode->next = tmp->next;
+            	tmp->next = newNode;
+            if(tmp == tail){
+                tail = newNode;
+            }
+            return;
+        }
+        tmp = tmp->next;
+    }
 	
 	
 }
